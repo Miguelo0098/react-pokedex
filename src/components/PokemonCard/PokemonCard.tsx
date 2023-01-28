@@ -16,7 +16,7 @@ export const PokemonCard = ({ image, name, types }: IPokemonCardProps) => {
         <CardMedia
           image={image ?? undefined}
           title={name}
-          sx={{ height: 190 }}
+          sx={{ height: 190, width: 180 }}
         />
       </CardWithBackround>
       <Typography component={"h2"} variant="h5">
