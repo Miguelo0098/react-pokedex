@@ -1,24 +1,29 @@
 import React from "react";
 
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Box, CardMedia, Typography } from "@mui/material";
+import { CardWithBackround } from "./PokemonCard.styled";
 
 export interface IPokemonCardProps {
-  image: string;
+  image: string | null;
   name: string;
-  nature: string;
+  types: string;
 }
 
-export const PokemonCard = ({ image, name, nature }: IPokemonCardProps) => {
+export const PokemonCard = ({ image, name, types }: IPokemonCardProps) => {
   return (
     <Box>
-      <Card>
-        <CardMedia image={image} title={name} />
-      </Card>
-      <Typography component={"h2"} variant="h4">
+      <CardWithBackround>
+        <CardMedia
+          image={image ?? undefined}
+          title={name}
+          sx={{ height: 190 }}
+        />
+      </CardWithBackround>
+      <Typography component={"h2"} variant="h5">
         {name}
       </Typography>
-      <Typography component={"h3"} variant="h5">
-        {nature}
+      <Typography component={"h3"} variant="body1">
+        {types}
       </Typography>
     </Box>
   );
