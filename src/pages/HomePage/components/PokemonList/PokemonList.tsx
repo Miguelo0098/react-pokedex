@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import { List, ListItem, ListItemText } from "@mui/material";
+import { useInfiniteScroll } from "../../../../hooks/useInfiniteScroll";
+import { pokemonService } from "../../../../services/pokemonService";
 
 interface Pokemon {
   name: string;
-  id: number;
+  url: string;
 }
 
 export const PokemonList = () => {
@@ -14,34 +16,22 @@ export const PokemonList = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${(page - 1) * 20}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setPokemons((prevPokemon) => [...prevPokemon, ...data.results]);
-        setLoading(false);
-      });
+    pokemonService.listPokemons((page - 1) * 20, 20).then((data) => {
+      setPokemons((prevPokemon) => [...prevPokemon, ...data.results]);
+      setLoading(false);
+    });
   }, [page]);
 
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight
-    )
-      return;
-    setPage((prevPage) => prevPage + 1);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useInfiniteScroll({
+    callback: () => {
+      setPage((prevPage) => prevPage + 1);
+    },
+  });
 
   return (
     <List>
-      {pokemons.map((pokemon) => (
-        <ListItem key={pokemon.id}>
+      {pokemons.map((pokemon, index) => (
+        <ListItem key={`${index}-${pokemon.name}`}>
           <ListItemText primary={pokemon.name} />
         </ListItem>
       ))}
