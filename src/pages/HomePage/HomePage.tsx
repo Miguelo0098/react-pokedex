@@ -1,12 +1,13 @@
 import React from "react";
-import { Header } from "../../components/Header/Header";
+import { PokemonList } from "./components/PokemonList/PokemonList";
 
 export interface IHomePageProps {}
 
 export const HomePage = (props: IHomePageProps) => {
   return (
     <div>
-      <Header />
+      Home page
+      <PokemonList />
     </div>
   );
 };
