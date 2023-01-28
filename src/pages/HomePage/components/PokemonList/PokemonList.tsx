@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { List, ListItem, ListItemText } from "@mui/material";
+import { Box, ListItemText } from "@mui/material";
 import { useInfiniteScroll } from "../../../../hooks/useInfiniteScroll";
 import { pokemonService } from "../../../../services/pokemonService";
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
+import { Pokemon } from "../../../../types/Pokemon";
+import { PokemonGrid } from "../../../../components/PokemonGrid/PokemonGrid";
 
 export const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -29,13 +26,9 @@ export const PokemonList = () => {
   });
 
   return (
-    <List>
-      {pokemons.map((pokemon, index) => (
-        <ListItem key={`${index}-${pokemon.name}`}>
-          <ListItemText primary={pokemon.name} />
-        </ListItem>
-      ))}
-      <ListItem>{loading && <ListItemText primary="loading..." />}</ListItem>
-    </List>
+    <Box>
+      <PokemonGrid pokemons={pokemons} />
+      {loading && <ListItemText primary="loading..." />}
+    </Box>
   );
 };
