@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Pokemon } from "pokenode-ts";
+
 import { getPokemonDataByName } from "../../../../services/pokemonService";
-import { PokemonCard } from "../../../../components/PokemonCard/PokemonCard";
+import { PokemonInfo } from "../../../../parts/PokemonInfo/PokemonInfo";
 
 export interface IPokemonDetailsProps {
   pokemonName: string;
@@ -27,7 +28,7 @@ export function PokemonDetails({ pokemonName }: IPokemonDetailsProps) {
   }
 
   return pokemon ? (
-    <PokemonCard
+    <PokemonInfo
       name={pokemon.name}
       image={pokemon.sprites.front_default}
       types={pokemon.types.map((type) => type.type.name).join("-")}

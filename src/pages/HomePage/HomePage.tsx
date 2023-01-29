@@ -1,15 +1,17 @@
 import React from "react";
+import { Box } from "@mui/material";
+
 import { PokemonList } from "./components/PokemonList/PokemonList";
-import { Box, Typography } from "@mui/material";
+import { CategoryHeaderText } from "./HomePage.styled";
 
 export interface IHomePageProps {}
 
 export const HomePage = (props: IHomePageProps) => {
   return (
     <Box component={"section"}>
-      <Typography component="h1" variant="h4">
-        {"Pokémons"}
-      </Typography>
+      <CategoryHeaderText component="h1" variant="h3">
+        {"POKÉMONS"}
+      </CategoryHeaderText>
       <PokemonList />
     </Box>
   );

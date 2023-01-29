@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { Pokemon } from "pokenode-ts";
-import { PokemonCard } from "../PokemonCard/PokemonCard";
+import { PokemonCard } from "./components/PokemonCard/PokemonCard";
 
 export interface IPokemonGridProps {
   pokemons: Pokemon[];
@@ -12,6 +12,7 @@ export const PokemonGrid = ({ pokemons }: IPokemonGridProps) => {
     <Grid
       container
       spacing={{ xs: 2, md: 4 }}
+      rowSpacing={{ xs: 5, md: 8 }}
       columns={{ xs: 4, sm: 6, md: 8, lg: 12 }}
     >
       {pokemons.map((pokemon, index) => {

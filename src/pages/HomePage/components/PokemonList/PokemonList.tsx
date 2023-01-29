@@ -4,7 +4,7 @@ import { Box, ListItemText } from "@mui/material";
 
 import { useInfiniteScroll } from "../../../../hooks/useInfiniteScroll";
 import { getPokemonList } from "../../../../services/pokemonService";
-import { PokemonGrid } from "../../../../components/PokemonGrid/PokemonGrid";
+import { PokemonGrid } from "../../../../parts/PokemonGrid/PokemonGrid";
 
 export const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import transparentRedLogo from "../../assets/transparent-red-logo.png";
 import { Logo, LinkLogoWrapper, StyledAppBar } from "./Header.styled";
