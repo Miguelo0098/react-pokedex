@@ -1,8 +1,12 @@
 import React from "react";
-import { Card, Grid, Typography } from "@mui/material";
-import { Ability } from "pokenode-ts";
+import { Grid, Typography } from "@mui/material";
 
-import { StyledPokemonName } from "./PokemonInfo.styled";
+import {
+  MoreStatsText,
+  StatsCard,
+  PokemonName,
+  PokemonTypes,
+} from "./PokemonInfo.styled";
 import { PokemonImage } from "../../components/PokemonImage/PokemonImage";
 
 export interface IPokemonInfoProps {
@@ -60,25 +64,35 @@ export const PokemonInfo = ({
         />
       </Grid>
       <Grid item xs={2}>
-        <StyledPokemonName component={"h2"} variant="h5">
+        <PokemonName component={"h2"} variant="h5">
           {name.toUpperCase()}
-        </StyledPokemonName>
-        <Typography component={"h3"} variant="h6" color="primary">
+        </PokemonName>
+        <PokemonTypes component={"h3"} variant="h6" color="primary">
           {types}
-        </Typography>
-        <Card>
-          <Typography component={"h4"} variant="h4">
-            {"More stats"}
-          </Typography>
-          {stats.map((stat) => (
-            <Typography variant="body1">
-              {`${stat.name}: `}
-              <Typography component={"span"} variant="body2" color="secondary">
-                {stat.value}
-              </Typography>
-            </Typography>
-          ))}
-        </Card>
+        </PokemonTypes>
+        <StatsCard>
+          <Grid container columns={{ xs: 2 }} spacing={{ xs: 1 }}>
+            <Grid item xs={2}>
+              <MoreStatsText component={"h4"} variant="h4">
+                {"More stats"}
+              </MoreStatsText>
+            </Grid>
+            {stats.map((stat) => (
+              <Grid key={stat.name} item xs={2}>
+                <Typography variant="body1">
+                  {`${stat.name}: `}
+                  <Typography
+                    component={"span"}
+                    variant="body2"
+                    color="secondary"
+                  >
+                    {stat.value}
+                  </Typography>
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
+        </StatsCard>
       </Grid>
     </Grid>
   );
