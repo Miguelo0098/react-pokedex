@@ -19,3 +19,8 @@ export const getPokemonList = async (offset: number, limit: number) => {
 
   return { pokemons: pokemonData, hasMore: !!data.next };
 };
+
+export const getPokemonDataByName = async (name: string) => {
+  const pokemon = await pokemonService.getPokemonByName(name);
+  return pokemon;
+};

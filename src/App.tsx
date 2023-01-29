@@ -17,7 +17,7 @@ function App() {
         }
       >
         <Route index element={<HomePage />} />
-        <Route path="/pokemon/:pokemonId" element={<PokemonDetailPage />} />
+        <Route path="/pokemon/:pokemonName" element={<PokemonDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
