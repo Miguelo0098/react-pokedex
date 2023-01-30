@@ -1,13 +1,18 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid, Skeleton, Typography } from "@mui/material";
 import { Pokemon } from "pokenode-ts";
 import { PokemonCard } from "./components/PokemonCard/PokemonCard";
 
+const LOADING_ARRAY = [
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+];
+
 export interface IPokemonGridProps {
   pokemons: Pokemon[];
+  loading?: boolean;
 }
 
-export const PokemonGrid = ({ pokemons }: IPokemonGridProps) => {
+export const PokemonGrid = ({ pokemons, loading }: IPokemonGridProps) => {
   return (
     <Grid
       container
@@ -28,6 +33,20 @@ export const PokemonGrid = ({ pokemons }: IPokemonGridProps) => {
           </Grid>
         );
       })}
+      {loading &&
+        LOADING_ARRAY.map(() => (
+          <Grid item xs={2}>
+            <Box>
+              <Skeleton variant="rectangular" height={180} />
+              <Typography variant="h5">
+                <Skeleton />
+              </Typography>
+              <Typography variant="h6">
+                <Skeleton />
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
     </Grid>
   );
 };

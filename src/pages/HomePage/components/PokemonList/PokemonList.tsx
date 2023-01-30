@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Pokemon } from "pokenode-ts";
-import { Box, ListItemText } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { useInfiniteScroll } from "../../../../hooks/useInfiniteScroll";
 import { getPokemonList } from "../../../../services/pokemonService";
@@ -31,8 +31,7 @@ export const PokemonList = () => {
 
   return (
     <Box>
-      <PokemonGrid pokemons={pokemons} />
-      {loading && <ListItemText primary="loading..." />}
+      <PokemonGrid pokemons={pokemons} loading={loading} />
     </Box>
   );
 };
