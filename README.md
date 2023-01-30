@@ -2,6 +2,10 @@
 
 A webapp that lists Pokemon data using [pokenode-ts](https://pokenode-ts-docs-gabb-c.vercel.app/).
 
+## Links
+
+- Live site URL: [React Pokedex](https://miguelo0098-react-pokedex.netlify.app/)
+
 ## Screenshots
 
 ### Mobile
@@ -15,10 +19,6 @@ A webapp that lists Pokemon data using [pokenode-ts](https://pokenode-ts-docs-ga
 ![list desktop screenshot](./docs/screenshots/list-desktop.png)
 
 ![details desktop screenshot](./docs/screenshots/details-desktop.png)
-
-## Links
-
-- Live site URL: [React Pokedex](https://miguelo0098-react-pokedex.netlify.app/)
 
 ## Built With:
 
