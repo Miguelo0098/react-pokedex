@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Grid, Skeleton, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Pokemon } from "pokenode-ts";
 import { PokemonCard } from "./components/PokemonCard/PokemonCard";
+import { SkeletonCard } from "./components/SkeletonCard/SkeletonCard";
 
 const LOADING_ARRAY = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -36,15 +37,7 @@ export const PokemonGrid = ({ pokemons, loading }: IPokemonGridProps) => {
       {loading &&
         LOADING_ARRAY.map(() => (
           <Grid item xs={2}>
-            <Box>
-              <Skeleton variant="rectangular" height={180} />
-              <Typography variant="h5">
-                <Skeleton />
-              </Typography>
-              <Typography variant="h6">
-                <Skeleton />
-              </Typography>
-            </Box>
+            <SkeletonCard />
           </Grid>
         ))}
     </Grid>
