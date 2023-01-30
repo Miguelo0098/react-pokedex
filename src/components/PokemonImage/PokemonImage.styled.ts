@@ -9,4 +9,5 @@ export const CardWithBackround = styled(Card)(({ theme }) => ({
   backgroundSize: "cover",
   display: "grid",
   placeItems: "center",
+  height: "100%",
 }));

@@ -54,26 +54,31 @@ export const PokemonInfo = ({
   ];
 
   return (
-    <Grid container columns={{ xs: 2, md: 4 }} spacing={{ xs: 2, md: 4 }}>
+    <Grid
+      container
+      columns={{ xs: 2, md: 4 }}
+      spacing={{ xs: 2, md: 12 }}
+      sx={{ minHeight: "100%" }}
+    >
       <Grid item xs={2}>
         <PokemonImage
           image={image ?? undefined}
           name={name}
           height={269}
-          width={388}
+          width={269}
         />
       </Grid>
       <Grid item xs={2}>
-        <PokemonName component={"h2"} variant="h5">
+        <PokemonName component={"h1"} variant="h5">
           {name.toUpperCase()}
         </PokemonName>
-        <PokemonTypes component={"h3"} variant="h6" color="primary">
+        <PokemonTypes component={"h2"} variant="h6" color="primary">
           {types}
         </PokemonTypes>
         <StatsCard>
           <Grid container columns={{ xs: 2 }} spacing={{ xs: 1 }}>
             <Grid item xs={2}>
-              <MoreStatsText component={"h4"} variant="h4">
+              <MoreStatsText component={"h3"} variant="h4">
                 {"More stats"}
               </MoreStatsText>
             </Grid>

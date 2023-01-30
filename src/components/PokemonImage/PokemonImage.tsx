@@ -18,7 +18,11 @@ export function PokemonImage({
 }: IPokemonImageProps) {
   return (
     <CardWithBackround>
-      <CardMedia image={image} title={name} sx={{ height, width }} />
+      <CardMedia
+        image={image}
+        title={name}
+        sx={{ minHeight: height, minWidth: width }}
+      />
     </CardWithBackround>
   );
 }

@@ -23,7 +23,7 @@ export const PokemonCard = ({ image, name, types }: IPokemonCardProps) => {
         <PokemonImage
           image={image ?? undefined}
           name={name}
-          height={190}
+          height={180}
           width={180}
         />
         <StyledPokemonName component={"h2"} variant="h5">
