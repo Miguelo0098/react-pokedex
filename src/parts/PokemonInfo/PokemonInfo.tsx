@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Skeleton, Typography } from "@mui/material";
 
 import {
   MoreStatsText,
@@ -10,14 +10,14 @@ import {
 import { PokemonImage } from "../../components/PokemonImage/PokemonImage";
 
 export interface IPokemonInfoProps {
-  image: string | null;
-  name: string;
-  types: string;
-  baseExperience: number;
-  height: number;
-  weight: number;
-  order: number;
-  abilities: string;
+  image?: string | null;
+  name?: string;
+  types?: string;
+  baseExperience?: number;
+  height?: number;
+  weight?: number;
+  order?: number;
+  abilities?: string;
 }
 
 export const PokemonInfo = ({
@@ -61,19 +61,23 @@ export const PokemonInfo = ({
       sx={{ minHeight: "100%" }}
     >
       <Grid item xs={2}>
-        <PokemonImage
-          image={image ?? undefined}
-          name={name}
-          height={269}
-          width={269}
-        />
+        {image && name ? (
+          <PokemonImage
+            image={image ?? undefined}
+            name={name}
+            height={269}
+            width={269}
+          />
+        ) : (
+          <Skeleton variant="rectangular" height={269} />
+        )}
       </Grid>
       <Grid item xs={2}>
         <PokemonName component={"h1"} variant="h5">
-          {name.toUpperCase()}
+          {name ? name.toUpperCase() : <Skeleton />}
         </PokemonName>
         <PokemonTypes component={"h2"} variant="h6" color="primary">
-          {types}
+          {types ? types : <Skeleton />}
         </PokemonTypes>
         <StatsCard>
           <Grid container columns={{ xs: 2 }} spacing={{ xs: 1 }}>
@@ -91,7 +95,7 @@ export const PokemonInfo = ({
                     variant="body2"
                     color="secondary"
                   >
-                    {stat.value}
+                    {stat.value ? stat.value : <Skeleton />}
                   </Typography>
                 </Typography>
               </Grid>

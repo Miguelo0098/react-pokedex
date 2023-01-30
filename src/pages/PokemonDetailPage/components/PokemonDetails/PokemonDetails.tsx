@@ -27,20 +27,18 @@ export function PokemonDetails({ pokemonName }: IPokemonDetailsProps) {
     return <div>{error.message}</div>;
   }
 
-  return pokemon ? (
+  return (
     <PokemonInfo
-      name={pokemon.name}
-      image={pokemon.sprites.front_default}
-      types={pokemon.types.map((type) => type.type.name).join("-")}
-      baseExperience={pokemon.base_experience}
-      height={pokemon.height}
-      order={pokemon.order}
-      weight={pokemon.weight}
-      abilities={pokemon.abilities
+      name={pokemon?.name}
+      image={pokemon?.sprites.front_default}
+      types={pokemon?.types.map((type) => type.type.name).join("-")}
+      baseExperience={pokemon?.base_experience}
+      height={pokemon?.height}
+      order={pokemon?.order}
+      weight={pokemon?.weight}
+      abilities={pokemon?.abilities
         .map((ability) => ability.ability.name)
         .join(", ")}
     />
-  ) : (
-    <div>loading...</div>
   );
 }
