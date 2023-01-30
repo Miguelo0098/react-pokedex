@@ -1,6 +1,7 @@
 {
   "name": "react-pokedex",
   "version": "0.1.0",
+  "homepage": "https://miguelo0098.github.io/react-pokedex",
   "private": true,
   "dependencies": {
     "@mui/material": "^5.11.6",
@@ -24,10 +25,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "yarn build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,8 @@
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
